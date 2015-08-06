@@ -5,7 +5,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   def forem_name
-    'Test User'
+    if name.present?
+      name
+    else
+      'Anonymous'
+    end
   end
 
   def forem_email
