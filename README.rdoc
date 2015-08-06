@@ -1,3 +1,27 @@
 = AuthForum
 
 This project rocks and uses MIT-LICENSE.
+
+add gem 'auth_forum' to your gem file 
+- gem 'auth_forum', :github => 'nazrulcse/auth_forum'
+add forem gem to your gem file
+- gem 'forem', :github => "radar/forem", :branch => "rails4"
+add devise gem to gem file
+- gem 'devise'
+run rake command to copy and run migration.
+- rake auth_forum:install:migration // copy auth_forum migration to your application
+- run rake db:migrate
+mount the auth_forum engine from routes. write into config/routes.rb
+- mount AuthForum::Engine, :at => '/'
+add following helper method to application controller
+
+def forem_user
+    current_user
+end
+
+helper_method :forem_user
+  
+  Run your application you will see auth_forum landing page. To run forem write site_url/forums.
+
+= Optional
+To customize your forem layout add a layout file named default.html.erb under app/layouts/forem/default.html.erb. You can add your custom css and javascript here for forem.
