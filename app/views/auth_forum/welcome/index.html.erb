@@ -1,0 +1,7 @@
+Welcome to rails mountable engine for forem and devise.
+<% if user_signed_in? %>
+ Sign in as <%= current_user.email %>
+<%else%>
+    <%= link_to 'Registration', new_user_registration_path %>
+<%end%>
+<%= link_to 'Forums', '/forums' %>
