@@ -16,3 +16,5 @@ gemspec
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'will_paginate', '3.0.5'
 gem 'forem', :github => "radar/forem", :branch => "rails4"
+gem 'devise'
+gem 'activeadmin', github: 'activeadmin'
