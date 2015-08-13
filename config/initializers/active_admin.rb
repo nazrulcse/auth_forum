@@ -4,7 +4,7 @@ ActiveAdmin.setup do |config|
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
-  config.site_title = 'Auth Forum'
+  config.site_title = "Nil Class"
 
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
@@ -30,7 +30,7 @@ ActiveAdmin.setup do |config|
   # will namespace routes to /hello_world/*
   #
   # To set no namespace by default, use:
-  #   config.default_namespace = false
+  #  config.default_namespace = false
   #
   # Default:
   # config.default_namespace = :admin
@@ -54,7 +54,7 @@ ActiveAdmin.setup do |config|
   #
   # This setting changes the method which Active Admin calls
   # within the application controller.
-  # config.authentication_method = :authenticate_admin_user!
+  config.authentication_method = :authenticate_current_user!
 
   # == User Authorization
   #
@@ -72,6 +72,9 @@ ActiveAdmin.setup do |config|
   # You can customize your CanCan Ability class name here.
   # config.cancan_ability_class = "Ability"
 
+  config.load_paths.delete_at(0)
+  config.load_paths << "#{AuthForum::Engine.root}/lib/admin/"
+
   # You can specify a method to be called on unauthorized access.
   # This is necessary in order to prevent a redirect loop which happens
   # because, by default, user gets redirected to Dashboard. If user
@@ -86,7 +89,7 @@ ActiveAdmin.setup do |config|
   #
   # This setting changes the method which Active Admin calls
   # (within the application controller) to return the currently logged in user.
-  # config.current_user_method = :current_admin_user
+  config.current_user_method = :current_user
 
   # == Logging Out
   #
@@ -98,7 +101,7 @@ ActiveAdmin.setup do |config|
   # will call the method to return the path.
   #
   # Default:
-  config.logout_link_path = :destroy_admin_user_session_path
+  config.logout_link_path = :destroy_user_session_path
 
   # This setting changes the http method used when rendering the
   # link. For example :get, :delete, :put, etc..
@@ -112,8 +115,7 @@ ActiveAdmin.setup do |config|
   # roots for each namespace.
   #
   # Default:
-
-  #config.root_to = 'dashboard#index'
+  # config.root_to = 'dashboard#index'
 
   # == Admin Comments
   #
@@ -141,9 +143,30 @@ ActiveAdmin.setup do |config|
   #
   # config.before_filter :do_something_awesome
 
+  # == Localize Date/Time Format
+  #
+  # Set the localize format to display dates and times.
+  # To understand how to localize your app with I18n, read more at
+  # https://github.com/svenfuchs/i18n/blob/master/lib%2Fi18n%2Fbackend%2Fbase.rb#L52
+  #
+  config.localize_format = :long
+
   # == Setting a Favicon
   #
   # config.favicon = 'favicon.ico'
+
+  # == Meta Tags
+  #
+  # Add additional meta tags to the head element of active admin pages.
+  #
+  # Add tags to all pages logged in users see:
+  #   config.meta_tags = { author: 'My Company' }
+
+  # By default, sign up/sign in/recover password pages are excluded
+  # from showing up in search engine results by adding a robots meta
+  # tag. You can reset the hash of meta tags included in logged out
+  # pages:
+  #   config.meta_tags_for_logged_out_pages = {}
 
   # == Removing Breadcrumbs
   #
@@ -223,6 +246,10 @@ ActiveAdmin.setup do |config|
   # You can control the default per page count for all resources here.
   #
   # config.default_per_page = 30
+  #
+  # You can control the max per page count too.
+  #
+  # config.max_per_page = 10_000
 
   # == Filters
   #

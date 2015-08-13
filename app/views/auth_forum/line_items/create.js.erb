@@ -1,1 +1,9 @@
-$('.cart-item-count').text(<%= @cart.line_items.count %>);
+var element = $('.cart-item-count');
+alert(element.length);
+if(element.length > 0) {
+   element.text(<%= @cart.line_items.count %>);
+}
+else {
+    $('.cart-icon-wrapper a').append("<span class='cart-item-count'> <%= @cart.line_items.count %> </span>");
+}
+
