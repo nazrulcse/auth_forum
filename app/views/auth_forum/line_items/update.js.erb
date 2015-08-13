@@ -3,5 +3,6 @@ var element = $('#product-<%= @line_item.id %>');
 element.find("input[type='text']").val(<%= @line_item.quantity %>);
 element.find('.cart-item-total-price').html("<%= number_to_currency(@line_item.total_price) %>");
 $('.cart-total-price').html("<%= number_to_currency(@line_item.cart.total_price) %>");
+$('.cart-item-count').html(<%= current_cart.total_cart_item %>);
 <%else%>
 <%end%>

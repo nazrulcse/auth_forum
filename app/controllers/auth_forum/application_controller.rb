@@ -1,10 +1,10 @@
 module AuthForum
   class ApplicationController < ActionController::Base
     helper_method :forem_user
+    helper_method :current_cart
     def forem_user
     end
 
-    private
     def current_cart
       Cart.find(session[:cart_id])
     rescue ActiveRecord::RecordNotFound
@@ -12,6 +12,8 @@ module AuthForum
       session[:cart_id] = cart.id
       cart
     end
+
+    private
 
   end
 end

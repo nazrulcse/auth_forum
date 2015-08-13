@@ -20,7 +20,7 @@
           <%= link_to carts_path, :class => 'no-padding' do %>
               <i class="fa fa-shopping-cart cart-icon"></i>
               <% if line_items_count.present? && line_items_count > 0 %>
-                  <span class='cart-item-count'> <%= line_items_count %> </span>
+                  <span class='cart-item-count'> <%= current_cart.total_cart_item %> </span>
               <%end%>
           <%end%>
         </li>

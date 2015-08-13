@@ -1,8 +1,8 @@
 var element = $('.cart-item-count');
 if(element.length > 0) {
-   element.text(<%= @cart.line_items.count %>);
+   element.text(<%= @cart.total_cart_item %>);
 }
 else {
-    $('.cart-icon-wrapper a').append("<span class='cart-item-count'> <%= @cart.line_items.count %> </span>");
+    $('.cart-icon-wrapper a').append("<span class='cart-item-count'> <%= @cart.total_cart_item %> </span>");
 }
 
