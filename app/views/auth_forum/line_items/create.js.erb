@@ -1,5 +1,4 @@
 var element = $('.cart-item-count');
-alert(element.length);
 if(element.length > 0) {
    element.text(<%= @cart.line_items.count %>);
 }
