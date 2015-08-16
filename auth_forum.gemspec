@@ -28,4 +28,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'rmagick'
   s.add_dependency 'carrierwave'
   s.add_dependency 'carmen-rails'
+  s.add_dependency 'activemerchant'
 end

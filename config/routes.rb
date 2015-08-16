@@ -2,6 +2,7 @@ AuthForum::Engine.routes.draw do
   #devise_for :admin_users, class_name: "AuthForum::AdminUser"
   ActiveAdmin.routes(self)
   resources :line_items
+  resources :orders
 
   resources :carts do
     member do
@@ -12,8 +13,10 @@ AuthForum::Engine.routes.draw do
   resources :categories
 
   resources :products
+  resources :events
 
   root 'welcome#index'
+  post 'user_authentication', to: 'welcome#user_authentication', as: :user_authentication
 
   resources :posts
   devise_for :users, module: :devise

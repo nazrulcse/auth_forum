@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :auth_forum_posts, :class_name => 'AuthForum::Post'
+  has_many :auth_forum_orders, :class_name => 'AuthForum::Order'
 
   def forem_name
     if name.present?

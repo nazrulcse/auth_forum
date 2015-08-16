@@ -1,10 +1,47 @@
-<div class="checkout-coupon-code">
-  <i class="fa fa-ticket pull-left"></i>
-  <span class="pull-left">
-    Have a coupon? Click here to enter your code |
-  </span>
-  <span>
-    &nbsp; Returning customer? Login here
-  </span>
-  <div class="clearfix"></div>
+<ol class="breadcrumb">
+  <li>
+    <%= link_to 'Home', products_path %>
+  </li>
+  <li>
+    <%= link_to 'Cart', carts_path %>
+  </li>
+  <li class="active"> Checkout</li>
+</ol>
+<div class="col-lg-12 no-padding">
+  <div class="col-lg-8 reset-left-padding checkout-information">
+    <div class="col-lg-6 reset-left-padding">
+      <%= render 'auth_forum/carts/account' %>
+      <%= render 'auth_forum/carts/billing_info' %>
+    </div>
+    <div class="col-lg-6">
+      <%= render 'auth_forum/carts/coupon_item' %>
+      <%= render 'auth_forum/carts/shipping_info' %>
+    </div>
+  </div>
+  <div class="col-lg-4 no-padding">
+    <div class="checkout-title reset-bottom-margin"> Order Details</div>
+    <table class="table cart-table">
+      <tbody>
+      <% current_cart.line_items.each do |line_item| %>
+          <%= render 'auth_forum/line_items/checkout_item', :line_item => line_item, :checkout => true %>
+      <% end %>
+      <tr class="order-total-item">
+        <td></td>
+        <td class="order-total-text"> Total =</td>
+        <td class="checkout-total-price">
+          <%= number_to_currency(current_cart.total_price) %> </td>
+      </tr>
+      </tbody>
+    </table>
+    <%= render 'auth_forum/carts/place_order' %>
+  </div>
 </div>
+
+<script type="text/javascript">
+    $(function () {
+        <% unless current_user.present? %>
+        $('.checkout-information .panel').addClass("is-disabled");
+        $('.checkout-information .panel').first().removeClass('is-disabled');
+        <%end%>
+    });
+</script>

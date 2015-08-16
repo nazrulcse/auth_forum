@@ -1,0 +1,75 @@
+<div class="panel panel-default">
+  <div class="checkout-title"> Account</div>
+  <div class="panel-body">
+    <% if current_user.present? %>
+        Hi <%= current_user.email %>
+    <% else %>
+        <div class="guest-user">
+          <input type="checkbox" id="guest_user" name="guest_user" value="1">
+          <label for="guest_user" class="checkout-label"> I am a Guest User </label>
+
+          <div class="guest-user-email">
+            <div class="guest-user-email form-group">
+              <%= text_field_tag(:g_email, '', :class => 'form-control', :placeholder => 'Guest User Email') %>
+            </div>
+            <div class="form-group pull-right">
+              <%= link_to 'Continue', 'javascript:void(0);', :id => 'guest-user-continue', :class => 'btn btn-default' %>
+            </div>
+          </div>
+        </div>
+
+        <div class="user-login">
+          <h4 class="checkout-label">
+            <i class="fa fa-user"> </i> Regular user Log in
+          </h4>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <div class="form-group">
+                <%= f.email_field :email, autofocus: true, :class => 'form-control', :placeholder => 'Email' %>
+              </div>
+
+              <div class="form-group">
+                <%= f.password_field :password, autocomplete: "off", :class => 'form-control', :placeholder => 'Password' %>
+              </div>
+
+              <div class="actions pull-right">
+                <%= f.submit 'Log in', :id => 'user-login-submit', :class => 'btn btn-default' %>
+              </div>
+          <% end %>
+        </div>
+    <% end %>
+  </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('#guest_user').click(function () {
+            if (this.checked) {
+                $('.guest-user-email').show();
+                $('.user-login').hide();
+            }
+            else {
+                $('.guest-user-email').hide();
+                $('.user-login').show();
+            }
+        });
+
+        $('#guest-user-continue').click(function () {
+            if ($('#g_email').val() != '') {
+                $('.panel').removeClass('is-disabled');
+            }
+        });
+
+        $('#user-login-submit').click(function (e) {
+            e.preventDefault();
+            $.ajax({
+                url: "<%= user_authentication_path %>",
+                type: 'post',
+                dataType: 'script',
+                data: $('#new_user').serialize(),
+                error: function () {
+
+                }
+            });
+        });
+    });
+</script>

@@ -29,7 +29,7 @@ module AuthForum
     end
 
     version :big do
-      process :resize_to_fit => [450, 650]
+      process :resize_to_fit => [400, 500]
     end
 
     # Process files as they are uploaded:

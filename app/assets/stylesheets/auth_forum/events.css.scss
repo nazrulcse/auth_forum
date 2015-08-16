@@ -1,0 +1,12 @@
+.event-item-actions {
+  border-top: solid 1px #f7f7f5;
+  padding-top: 15px;
+  a {
+    border: 0;
+    background: #f7f7f5 none repeat scroll 0 0;
+    color: #666666;
+  }
+  a:first-child {
+    margin-right: 10px;
+  }
+}

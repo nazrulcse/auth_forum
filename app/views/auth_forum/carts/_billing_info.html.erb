@@ -1,0 +1,62 @@
+<div class="panel panel-default">
+  <div class="checkout-title"> Billing Information </div>
+  <div class="panel-body">
+      <div class="col-lg-12 no-padding">
+        <div class="form-group">
+          <%= f.text_field(:card_holder_name, :class => 'form-control', :placeholder => 'Card Holder Name') %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field(:card_num, :class => 'form-control', :placeholder => 'Credit Card Number') %>
+        </div>
+      </div>
+      <div class="col-lg-12 no-padding">
+        <div class="form-group col-lg-6 reset-left-padding">
+          <%= f.select :exp_month, options_for_select((1..12).collect{|n| [Date::MONTHNAMES[n], n]}), {prompt: 'Expiration Month'}, {:class => 'form-control selectpicker'} %>
+        </div>
+        <div class="form-group col-lg-6 no-padding">
+          <%= f.select :start_year, options_for_select(Time.now.year..Time.now.year + 10), {prompt: 'Expiration Year'}, {:class => 'form-control selectpicker'} %>
+        </div>
+      </div>
+
+      <div class="col-lg-12 no-padding">
+        <div class="form-group">
+          <%= f.text_field(:card_cvv, :class => 'form-control', :placeholder => 'CVV') %>
+        </div>
+        <div class="form-group">
+          <%= f.text_area :b_address,  :class => 'form-control', :placeholder => 'Address' %>
+        </div>
+        <div class="form-group">
+          <%= f.select :b_country, options_for_select(Carmen::Country.all.collect { |c| [c.name, c.code]}), {prompt: 'Country'}, {:class => 'form-control selectpicker'} %>
+        </div>
+        <div class="form-group">
+          <%= f. subregion_select :b_state, 'US', {:placeholder => 'State'}, {:class => 'form-control selectpicker'} %>
+        </div>
+      </div>
+
+    <div class="col-lg-12 no-padding">
+      <div class="col-lg-6 reset-left-padding">
+        <div class="form-group">
+          <%= f.text_field :b_city, :class => 'form-control', :placeholder => 'City' %>
+        </div>
+      </div>
+      <div class="col-lg-6 no-padding">
+        <div class="form-group">
+          <%= f.text_field :b_zip, :class => 'form-control', :placeholder => 'Zip' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.check_box :same_address %>
+        <%= f.label :same_address, 'Billing Address Same as Shipping?', :class => 'checkout-label' %>
+      </div>
+    </div>
+
+      <!--<div class="actions pull-right">-->
+        <!--<%#= submit_tag 'Continue', :class => 'btn btn-default' %>-->
+      <!--</div>-->
+  </div>
+</div>
+<script type="text/javascript">
+  $(function() {
+      $('.selectpicker').selectpicker();
+  })
+</script>

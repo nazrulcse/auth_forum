@@ -1,5 +1,43 @@
-.checkout-coupon-code {
+.checkout-title {
   background: #3a5c83 none repeat scroll 0 0;
   color: #fff;
-  padding: 12px 25px;
+  font-size: 20px;
+  margin: 0;
+  padding: 8px 25px;
+  text-align: center;
+}
+
+.order-item-total-price {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.order-total-item {
+  font-weight: bold;
+  font-size: 18px;
+  border-top: 2px solid #3a5c83;
+  .order-total-text {
+    text-align: right;
+  }
+  .checkout-total-price {
+    color: darkcyan;
+    text-align: left;
+  }
+}
+
+.checkout-label {
+  color: #555;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.guest-user-email {
+  display: none;
+}
+
+.is-disabled {
+  background: #fdfdfd none repeat scroll 0 0;
+  opacity: 0.5;
+  pointer-events: none;
 }

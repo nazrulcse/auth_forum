@@ -1,0 +1,7 @@
+<h1 style="border: none;" class="title"> All Events </h1>
+<% if @events.present? %>
+ <% @events.each do |event| %>
+        <%= render 'item', :event => event %>
+ <%end%>
+<% end %>
+<%= link_to 'New Event', new_event_path %>

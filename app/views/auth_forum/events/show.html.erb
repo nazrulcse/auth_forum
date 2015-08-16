@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+<ol class="breadcrumb">
+  <li>
+    <%= link_to 'Event', events_path %>
+  </li>
+  <li class="active"> <%= @event.name %> </li>
+</ol>
+<div class="col-lg-12">
+  <div class="col-lg-6">
+    <%= image_tag(@event.product.get_image(:big), :class => 'show-big-image') %>
+    <div class="product-small-image">
+      <%= image_tag(@event.product.get_image(:thumb)) %>
+    </div>
+  </div>
+
+  <div class="col-lg-6">
+    <div class="text-center">
+      <h3>
+        <%= @event.title %>
+      </h3>
+    </div>
+    <div class="product-price">
+      Price: <%= number_to_currency(@event.product.price) %>
+    </div>
+    <div class="product-desc">
+      <%= @event.description %>
+    </div>
+    <div class="add-to-cart-form">
+      <%= form_for AuthForum::LineItem.new do |f| %>
+          <div class="col-lg-8">
+            <%= hidden_field_tag(:product_id, @event.product.id) %>
+            <%= f.number_field :quantity, :class => 'form-control', :min => 1 %>
+          </div>
+          <div class="col-lg-4">
+            <%= f.submit :class => 'btn btn-default', :value => 'Add To Cart' %>
+          </div>
+      <%end%>
+    </div>
+  </div>
+</div>

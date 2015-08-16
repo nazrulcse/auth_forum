@@ -1,0 +1,43 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  card_holder_name: MyString
+  email: MyString
+  is_guest: false
+  user_id: 1
+  card_number: 1
+  first_name: MyString
+  last-name: MyString
+  s_address: MyString
+  s_country: MyString
+  s_city: MyString
+  s_zip: 1
+  b_name: MyString
+  b_address: MyString
+  b_country: MyString
+  b_state: MyString
+  b_city: MyString
+  b_zip: 1
+  status_id: 1
+  s_b_same: false
+
+two:
+  card_holder_name: MyString
+  email: MyString
+  is_guest: false
+  user_id: 1
+  card_number: 1
+  first_name: MyString
+  last-name: MyString
+  s_address: MyString
+  s_country: MyString
+  s_city: MyString
+  s_zip: 1
+  b_name: MyString
+  b_address: MyString
+  b_country: MyString
+  b_state: MyString
+  b_city: MyString
+  b_zip: 1
+  status_id: 1
+  s_b_same: false

@@ -1,0 +1,16 @@
+<div class="col-lg-8 col-lg-offset-2">
+  <div class="panel panel-default">
+    <div class="panel-heading"> New Event </div>
+    <div class="panel-body">
+      <%= render 'form' %>
+    </div>
+    <div class="panel-footer">
+      <%= link_to 'Back', events_path %>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  $(function() {
+      $('#event_product_id').selectpicker();
+  })
+</script>
