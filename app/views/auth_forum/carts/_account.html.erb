@@ -65,7 +65,7 @@
                 url: "<%= user_authentication_path %>",
                 type: 'post',
                 dataType: 'script',
-                data: $('#new_user').serialize(),
+                data: {user: {email: $('#user_email').val(), password: $('#user_password').val()}},
                 error: function () {
 
                 }
