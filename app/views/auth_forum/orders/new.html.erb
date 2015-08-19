@@ -9,16 +9,7 @@
 </ol>
 <div class="col-lg-12 no-padding">
   <%= form_for(@order) do |f| %>
-      <% if @order.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(@order.errors.count, "error") %> prohibited this post from being saved:</h2>
-            <ul>
-              <% @order.errors.full_messages.each do |message| %>
-                  <li><%= message %></li>
-              <% end %>
-            </ul>
-          </div>
-      <% end %>
+      <%= form_validation_message(@order) %>
       <div class="col-lg-8 reset-left-padding checkout-information">
         <div class="col-lg-6 reset-left-padding">
           <%= render 'auth_forum/carts/account' %>

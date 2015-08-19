@@ -21,3 +21,27 @@
 .reset-bottom-margin {
   margin-bottom: 0 !important;
 }
+
+#error_explanation {
+  background-repeat: no-repeat;
+  border: 1px solid #ffbaba;
+  color: #d8000c;
+  margin: 10px 0;
+  padding: 0;
+  h2 {
+    margin: 0;
+    padding: 10px;
+    background-color: #ffbaba;
+    border-bottom: 1px solid #d8000c;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    background: #FFECEC;
+    margin: 0;
+    li {
+      padding: 3px 25px;
+      font-family:Tahoma,Geneva,Arial,sans-serif;font-size:14px;
+    }
+  }
+}
