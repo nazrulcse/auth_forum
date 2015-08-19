@@ -22,11 +22,11 @@
       <div class="col-lg-8 reset-left-padding checkout-information">
         <div class="col-lg-6 reset-left-padding">
           <%= render 'auth_forum/carts/account' %>
-          <%= render 'auth_forum/carts/billing_info', :f => f %>
+          <%= render 'auth_forum/carts/shipping_info', :f => f %>
         </div>
         <div class="col-lg-6">
           <%= render 'auth_forum/carts/coupon_item' %>
-          <%= render 'auth_forum/carts/shipping_info', :f => f %>
+          <%= render 'auth_forum/carts/billing_info', :f => f %>
         </div>
       </div>
       <div class="col-lg-4 no-padding">
@@ -52,8 +52,25 @@
 <script type="text/javascript">
     $(function () {
         <% unless current_user.present? %>
-        $('.checkout-information .panel').addClass("is-disabled");
-        $('.checkout-information .panel').first().removeClass('is-disabled');
+        var panel = $('.checkout-information .panel');
+        panel.addClass("is-disabled");
+        panel.first().removeClass('is-disabled');
         <%end%>
+
+        var billing = $('#order_same_address');
+        billing.click(function () {
+            billing_address(this.checked);
+        });
+
+        billing_address(billing.is(':checked'));
     });
+
+    function billing_address(check) {
+        if (check) {
+            $('.billing-address').hide('show');
+        }
+        else {
+            $('.billing-address').show('show');
+        }
+    }
 </script>
