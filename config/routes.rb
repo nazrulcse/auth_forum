@@ -2,7 +2,11 @@ AuthForum::Engine.routes.draw do
   #devise_for :admin_users, class_name: "AuthForum::AdminUser"
   ActiveAdmin.routes(self)
   resources :line_items
-  resources :orders
+  resources :orders do
+    member do
+      get 'details'
+    end
+  end
 
   resources :carts do
     member do

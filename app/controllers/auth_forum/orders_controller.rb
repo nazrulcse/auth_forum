@@ -3,6 +3,10 @@ require_dependency "auth_forum/application_controller"
 module AuthForum
   class OrdersController < ApplicationController
 
+    def index
+      @orders = Order.all.where(:user_id => current_user.id)
+    end
+
     def new
       @order = Order.new
     end
@@ -43,6 +47,13 @@ module AuthForum
         end
       else
         render 'new'
+      end
+    end
+
+    def details
+      @order = Order.find_by_id(params[:id])
+      respond_to do |format|
+        format.js {render :layout => false}
       end
     end
 

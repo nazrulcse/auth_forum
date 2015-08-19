@@ -16,3 +16,13 @@
 a {
     outline: 0 !important;
 }
+
+.loading {
+    position: absolute;
+    top: 45%;
+    left: 45%;
+}
+
+.main-content {
+    margin-top: 70px;
+}

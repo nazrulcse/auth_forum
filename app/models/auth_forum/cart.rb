@@ -13,19 +13,11 @@ module AuthForum
     end
 
     def total_cart_item
-      quantity = 0
-      line_items.each do |line_item|
-        quantity += line_item.quantity
-      end
-      quantity
+      line_items.sum(:quantity)
     end
 
     def total_price
-      total = 0
-      line_items.each do |line_item|
-       total += line_item.quantity * line_item.product.price
-      end
-      total
+      line_items.collect { |item| item.quantity * item.product.price }.sum
     end
 
   end

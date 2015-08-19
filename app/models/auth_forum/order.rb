@@ -31,5 +31,13 @@ module AuthForum
       end
     end
 
+    def total_item
+      line_items.sum(:quantity)
+    end
+
+    def order_total
+      line_items.collect{|item| item.quantity * item.product.price }.sum
+    end
+
   end
 end
