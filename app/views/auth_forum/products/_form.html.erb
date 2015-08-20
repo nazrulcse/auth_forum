@@ -12,7 +12,7 @@
 
     <div class="form-group">
       <label> Category </label>
-      <%= f.select(:category_id, @category.collect {|cat| [cat.name, cat.id]}, {:prompt => 'Select Product Category'}, {:class => 'form-control'}) %>
+      <%= f.select(:category_id, AuthForum::Category.all.collect {|cat| [cat.name, cat.id]}, {:prompt => 'Select Product Category'}, {:class => 'form-control'}) %>
     </div>
 
     <div class="form-group">

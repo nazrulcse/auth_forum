@@ -1,6 +1,6 @@
 <ol class="breadcrumb">
   <li>
-    <%= link_to 'Home', products_path %>
+    <%= link_to 'Products', products_path %>
   </li>
   <li class="active">Shopping Cart</li>
 </ol>
@@ -31,6 +31,7 @@
         <h3 class="text-center">
           Total cart amount <span class="cart-total-price"> <%= number_to_currency(@cart.total_price) %> </span>
         </h3>
+
         <div class="pull-right">
           <%= link_to 'Continue Shopping', products_path, :class => 'btn btn-primary' %>
           <%#= link_to 'Checkout', checkout_cart_path(@cart), :class => 'btn btn-warning' %>
@@ -41,21 +42,21 @@
     </div>
 
 <% else %>
-    <div>
-      Empty cart
+    <div class='alert alert-warning'>
+      Empty Shopping Cart
     </div>
 <% end %>
 
 <script type="text/javascript">
-    $(function() {
-        $('.add-cart-item').click(function(e) {
+    $(function () {
+        $('.add-cart-item').click(function (e) {
             var line_item_id = $(this).attr('data-id');
             update_cart_item(line_item_id, 1);
         });
 
-        $('.sub-cart-item').click(function(e) {
+        $('.sub-cart-item').click(function (e) {
             var element = $(this);
-            if(element.parent().find("#quantity").val() > 1) {
+            if (element.parent().find("#quantity").val() > 1) {
                 update_cart_item(element.attr('data-id'), -1);
             }
         });
@@ -67,7 +68,7 @@
             type: 'put',
             dataType: 'script',
             data: {quantity: quantity},
-            error: function() {
+            error: function () {
                 alert('Something went wrong');
             }
         });

@@ -2,31 +2,27 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
-.product_items{
-
-}
 
 .single_item {
-    width: 22%;
-    display: inline-block;
-    text-align: center;
-    border: 1px solid #f7f7f5;
-    margin-bottom: 30px;
-    overflow: hidden;
-    margin-right: 25px;
-    padding: 15px 0;
-    img {
-      max-height: 120px;
-      max-width: 120px;
-    }
-}
-
-.single_item h2{
+  width: 22%;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid #f7f7f5;
+  margin-bottom: 30px;
+  overflow: hidden;
+  margin-right: 25px;
+  padding: 15px 0;
+  vertical-align: top;
+  img {
+    max-height: 120px;
+    max-width: 120px;
+  }
+  h2 {
     color: #FE980F;
-}
-
-.single_item p{
+  }
+  p {
     color: #696763;
+  }
 }
 
 .category-title, .title {
@@ -38,15 +34,15 @@
 }
 
 .product-title {
-    color: #48c491;
-    font-size: 20px;
-    font-weight: 700;
-    margin-top: 0;
+  color: #48c491;
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 0;
 }
 
 .product-small-image {
-    width: 100px;
-    height: 100px;
+  width: 100px;
+  height: 100px;
   img {
     width: 100%;
     height: 100%;
@@ -54,18 +50,18 @@
 }
 
 .product-desc {
-    border-bottom: 1px solid #e0e0e0;
-    border-top: 1px solid #e0e0e0;
-    margin: 20px 0;
-    padding: 20px 0;
-    width: 100%;
+  border-bottom: 1px solid #e0e0e0;
+  border-top: 1px solid #e0e0e0;
+  margin: 20px 0;
+  padding: 20px 0;
+  width: 100%;
 }
 
 .product-price {
-    color: #232323;
-    font-size: 36px;
-    font-weight: 900;
-    line-height: 36px;
+  color: #232323;
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 36px;
 }
 
 .cart-icon-wrapper {
@@ -91,14 +87,10 @@
   }
 }
 
-.text-center {
-    text-align: center;
-}
-
 .add-to-cart {
-    background: #f7f7f5 none repeat scroll 0 0;
-    border: 0;
-    color: #666666;
+  background: #f7f7f5 none repeat scroll 0 0;
+  border: 0;
+  color: #666666;
 }
 
 .show-big-image {

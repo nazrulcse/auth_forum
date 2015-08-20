@@ -13,7 +13,6 @@ module AuthForum
 
     def new
       @product = Product.new
-      @category = Category.all
     end
 
     def edit
