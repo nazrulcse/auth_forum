@@ -1,8 +1,9 @@
-<div class="panel panel-default">
-  <div class="checkout-title"> Confirm Order </div>
-  <div class="panel-body">
-    <%= f.submit 'Place Order', :class => "btn btn-default" %>
-    <!--<a href="#" class="btn btn-default"> Confirm Order </a>-->
-    <a href="#" class="btn btn-danger"> Cancel Order </a>
+<div class="checkout-information">
+  <div class="panel panel-default">
+    <div class="checkout-title"> Confirm Order </div>
+    <div class="panel-body">
+      <%= f.submit 'Place Order', :class => "btn btn-default" %>
+      <%= link_to 'Cancel Order', empty_cart_cart_path(current_cart.id), :class => 'btn btn-danger', :data => {:confirm => 'Are you sure?'} %>
+    </div>
   </div>
 </div>

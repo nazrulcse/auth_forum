@@ -6,7 +6,7 @@ module AuthForum
         :delivery => 2,
         :delivered => 3
     }
-    attr_accessor :exp_month, :start_year, :card_cvv, :card_num
+    attr_accessor :exp_month, :start_year, :card_cvv, :card_num, :guest_email
     has_many :line_items
     belongs_to :user
     after_create :update_billing_address
@@ -25,6 +25,7 @@ module AuthForum
     validates :s_country, :presence => true
     validates :s_city, :presence => true
     validates :s_zip, :presence => true
+    validates :email, presence: true, :if => :user_is_guest?
 
     def add_to_line_item(current_cart)
       current_cart.line_items.each do |item|
@@ -40,6 +41,10 @@ module AuthForum
          self.b_zip = s_zip
         self.save
       end
+    end
+
+    def user_is_guest?
+      is_guest
     end
 
     def same_billing_address?

@@ -5,12 +5,12 @@
         Hi <%= current_user.email %>
     <% else %>
         <div class="guest-user">
-          <input type="checkbox" id="guest_user" name="guest_user" value="1">
+          <%= f.check_box :is_guest, :id => 'guest_user' %>
           <label for="guest_user" class="checkout-label"> I am a Guest User </label>
 
           <div class="guest-user-email">
             <div class="guest-user-email form-group">
-              <%= text_field_tag(:g_email, '', :class => 'form-control', :placeholder => 'Guest User Email') %>
+              <%= f.email_field(:email, :class => 'form-control', :placeholder => 'Guest User Email') %>
             </div>
             <div class="form-group pull-right">
               <%= link_to 'Continue', 'javascript:void(0);', :id => 'guest-user-continue', :class => 'btn btn-default' %>
@@ -22,19 +22,18 @@
           <h4 class="checkout-label">
             <i class="fa fa-user"> </i> Regular user Log in
           </h4>
-          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-              <div class="form-group">
-                <%= f.email_field :email, autofocus: true, :class => 'form-control', :placeholder => 'Email' %>
-              </div>
 
-              <div class="form-group">
-                <%= f.password_field :password, autocomplete: "off", :class => 'form-control', :placeholder => 'Password' %>
-              </div>
+          <div class="form-group">
+            <%= email_field_tag :email, '', autofocus: true, :class => 'form-control', :placeholder => 'Email', :id => 'user_email' %>
+          </div>
 
-              <div class="actions pull-right">
-                <%= f.submit 'Log in', :id => 'user-login-submit', :class => 'btn btn-default' %>
-              </div>
-          <% end %>
+          <div class="form-group">
+            <%= password_field_tag :password, '', autocomplete: "off", :class => 'form-control', :placeholder => 'Password', :id => 'user_password' %>
+          </div>
+
+          <div class="actions pull-right">
+            <%= link_to 'Log in', 'javascript:void(0);', :id => 'user-login-submit', :class => 'btn btn-default' %>
+          </div>
         </div>
     <% end %>
   </div>
@@ -42,20 +41,24 @@
 
 <script type="text/javascript">
     $(function () {
-        $('#guest_user').click(function () {
-            if (this.checked) {
-                $('.guest-user-email').show();
-                $('.user-login').hide();
-            }
-            else {
-                $('.guest-user-email').hide();
-                $('.user-login').show();
-            }
+        var guest = $('#guest_user');
+        guest.click(function () {
+            guest_user(this.checked);
         });
 
+        guest_user(guest.is(':checked'));
+
         $('#guest-user-continue').click(function () {
-            if ($('#g_email').val() != '') {
-                $('.panel').removeClass('is-disabled');
+            if ($('#order_email').val() != '') {
+                if(validateEmail($('#order_email').val())) {
+                    $('.panel').removeClass('is-disabled');
+                }
+                else {
+                    alert("Guest email is invalid");
+                }
+            }
+            else {
+                alert("Please input guest email");
             }
         });
 
@@ -72,4 +75,20 @@
             });
         });
     });
+
+    function validateEmail(email) {
+        var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+        return re.test(email);
+    }
+
+    function guest_user(check) {
+        if (check) {
+            $('.guest-user-email').show();
+            $('.user-login').hide();
+        }
+        else {
+            $('.guest-user-email').hide();
+            $('.user-login').show();
+        }
+    }
 </script>

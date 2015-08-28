@@ -1,0 +1,9 @@
+<h1> Hi, <%= @order.email %></h1>
+<p>
+  Your order at <%= root_url %> has been confirmed
+  Order by: <%= @order.user.present? ? @order.user.name : @order.email %>
+</p>
+<p>
+  To review and status your order, just follow this link: <%= order_url(@order.id) %>
+</p>
+<p> Thanks for your order with us! </p>

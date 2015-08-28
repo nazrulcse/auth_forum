@@ -4,7 +4,7 @@ module AuthForum
   class EventsController < ApplicationController
 
     def index
-     @events = Event.all
+     @events = Event.limit(10)
     end
 
     def new
@@ -13,6 +13,13 @@ module AuthForum
 
     def show
       @event = Event.find_by_id(params[:id])
+    end
+
+    def more
+      @events = Event.limit(10).offset(params[:offset])
+      respond_to do |format|
+        format.js{render :layout => false}
+      end
     end
 
     def create

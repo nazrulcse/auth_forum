@@ -10,14 +10,22 @@ AuthForum::Engine.routes.draw do
 
   resources :carts do
     member do
-      get 'checkout'
+      get 'empty_cart'
     end
   end
 
   resources :categories
 
-  resources :products
-  resources :events
+  resources :products do
+    collection do
+      get 'more'
+    end
+  end
+  resources :events do
+    collection do
+      get 'more'
+    end
+  end
 
   root 'welcome#index'
   post 'user_authentication', to: 'welcome#user_authentication', as: :user_authentication

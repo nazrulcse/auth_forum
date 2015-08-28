@@ -1,7 +1,5 @@
 <p id="notice"><%= notice %></p>
-
 <h1 class="title" style="border: none;"> All Products </h1>
-
 <div class="product_items">
   <% @products.each do |product| %>
     <%= render 'item', :product => product %>
@@ -11,3 +9,21 @@
 <br>
 
 <%= link_to 'New Product', new_product_path %>
+
+<script type="text/javascript">
+  $(function() {
+      $(window).scroll(function() {
+          if($(window).scrollTop() == $(document).height() - $(window).height()) {
+              $.ajax({
+                  url: "<%= more_products_path %>",
+                  type: 'get',
+                  dataType: 'script',
+                  data: {offset: $('.product_items .single_item').length},
+                  error: function() {
+                      alert("Something wrong");
+                  }
+              });
+          }
+      });
+  })
+</script>

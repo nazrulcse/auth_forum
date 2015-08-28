@@ -12,7 +12,7 @@
       <%= form_validation_message(@order) %>
       <div class="col-lg-8 reset-left-padding checkout-information">
         <div class="col-lg-6 reset-left-padding">
-          <%= render 'auth_forum/carts/account' %>
+          <%= render 'auth_forum/carts/account', :f => f %>
           <%= render 'auth_forum/carts/shipping_info', :f => f %>
         </div>
         <div class="col-lg-6">

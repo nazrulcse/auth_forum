@@ -1,7 +1,27 @@
 <h1 style="border: none;" class="title"> All Events </h1>
-<% if @events.present? %>
- <% @events.each do |event| %>
-        <%= render 'item', :event => event %>
- <%end%>
-<% end %>
+<div class="event_items">
+  <% if @events.present? %>
+      <% @events.each do |event| %>
+          <%= render 'item', :event => event %>
+      <%end%>
+  <% end %>
+</div>
 <%= link_to 'New Event', new_event_path %>
+
+<script type="text/javascript">
+    $(function() {
+        $(window).scroll(function() {
+            if($(window).scrollTop() == $(document).height() - $(window).height()) {
+                $.ajax({
+                    url: "<%= more_events_path %>",
+                    type: 'get',
+                    dataType: 'script',
+                    data: {offset: $('.event_items .single_item').length},
+                    error: function() {
+                        alert("Something wrong");
+                    }
+                });
+            }
+        });
+    })
+</script>

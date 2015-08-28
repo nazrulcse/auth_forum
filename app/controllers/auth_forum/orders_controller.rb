@@ -13,8 +13,10 @@ module AuthForum
 
     def create
       @order = Order.new(order_params)
-      @order.user_id = current_user.id
-      @order.email = current_user.email
+      if current_user.present?
+        @order.user_id = current_user.id
+        @order.email = current_user.email
+      end
       if @order.valid?
         transaction = ActiveMerchant::Billing::StripeGateway.new(:login => 'sk_test_WMwFf4Euu4Hi6570qcEFy1na')
         @amount = current_cart.total_price.to_i
@@ -40,6 +42,7 @@ module AuthForum
             @order.add_to_line_item(current_cart)
             current_cart.delete
             session.delete(:cart_id)
+            AuthForum::OrderMailer.order_confirm(@order).deliver_now
           end
         else
           @order.errors.add(:base, @response.message.to_s)

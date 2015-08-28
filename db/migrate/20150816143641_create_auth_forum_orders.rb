@@ -3,7 +3,7 @@ class CreateAuthForumOrders < ActiveRecord::Migration
     create_table :auth_forum_orders do |t|
       t.string :card_holder_name
       t.string :email
-      t.boolean :is_guest,default: false
+      t.boolean :is_guest, default: false
       t.integer :user_id
       t.integer :card_number
       t.string :first_name

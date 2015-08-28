@@ -5,7 +5,7 @@ module AuthForum
     before_action :set_product, only: [:show, :edit, :update, :destroy]
 
     def index
-      @products = Product.all
+      @products = Product.limit(10)
     end
 
     def show
@@ -16,6 +16,13 @@ module AuthForum
     end
 
     def edit
+    end
+
+    def more
+      @products = Product.limit(10).offset(params[:offset])
+      respond_to do |format|
+        format.js {render :layout => false}
+      end
     end
 
     def create

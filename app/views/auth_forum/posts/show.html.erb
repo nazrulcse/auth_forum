@@ -1,19 +1,26 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
-<p>
-  <strong>Author:</strong>
-  <%= @post.author %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @post.description %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<div class="col-lg-12 clearfix">
+  <h1 class="page-header reset-margin"> Posted By
+    <small>
+      <%= @post.author %>
+    </small>
+  </h1>
+  <ol class="breadcrumb reset-margin">
+    <li><a href="/">Home</a>
+    </li>
+    <li class="active">Post</li>
+  </ol>
+</div>
+<div class="col-lg-12">
+  <hr>
+  <p>
+    <i class="fa fa-clock-o"></i>
+    Posted on <%= @post.created_at.strftime("%A %d, %Y %p") %>
+  </p>
+  <hr>
+  <p class="lead">
+   <%= @post.title %>
+  </p>
+  <p>
+    <%= @post.description %>
+  </p>
+</div>
