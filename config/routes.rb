@@ -1,6 +1,5 @@
 AuthForum::Engine.routes.draw do
-  #devise_for :admin_users, class_name: "AuthForum::AdminUser"
-  ActiveAdmin.routes(self)
+  devise_for :admin_users, class_name: "AuthForum::AdminUser", module: :devise
   resources :line_items
   resources :orders do
     member do
