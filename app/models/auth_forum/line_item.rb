@@ -8,5 +8,9 @@ module AuthForum
       quantity * product.price
     end
 
+    def to_s
+      product.title
+    end
+
   end
 end

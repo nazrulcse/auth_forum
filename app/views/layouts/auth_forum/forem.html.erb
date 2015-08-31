@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AuthForum Forum</title>
+  <%= stylesheet_link_tag 'auth_forum/application', media: "all" %>
+  <%= javascript_include_tag 'auth_forum/application' %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+
+<div class="container">
+  <!-- Static navbar -->
+  <%= render 'layouts/auth_forum/nav_header' %>
+  <!-- Main component for a primary marketing message or call to action -->
+  <div class="main-content">
+    <%= yield %>
+  </div>
+</div> <!-- /container -->
+</body>
+</html>

@@ -16,14 +16,6 @@
         <li><a href="#">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li class="cart-icon-wrapper">
-          <%= link_to auth_forum.carts_path, :class => 'no-padding' do %>
-              <i class="fa fa-shopping-cart cart-icon"></i>
-              <% if line_items_count.present? && line_items_count > 0 %>
-                  <span class='cart-item-count'> <%= current_cart.total_cart_item %> </span>
-              <%end%>
-          <%end%>
-        </li>
         <li>
           <%= link_to 'Products', auth_forum.products_path %>
         </li>

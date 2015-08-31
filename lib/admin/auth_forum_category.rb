@@ -1,17 +1,26 @@
 ActiveAdmin.register AuthForum::Category do
+  menu label: 'Product Category'
+  controller do
+    def create
+      category = AuthForum::Category.new(category_params)
+      if category.save
+        redirect_to admin_auth_forum_category_path(category)
+      else
+        render 'new'
+      end
+    end
 
-# See permitted parameters documentation:
-# https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-#
-# permit_params :list, :of, :attributes, :on, :model
-#
-# or
-#
-# permit_params do
-#   permitted = [:permitted, :attributes]
-#   permitted << :other if resource.something?
-#   permitted
-# end
+    def update
+      category = AuthForum::Category.find_by_id(params[:id])
+      if category.update_attributes(category_params)
+        redirect_to admin_auth_forum_category_path(category)
+      else
+        render 'edit'
+      end
+    end
 
-
+    def category_params
+      params.require(:category).permit!
+    end
+  end
 end

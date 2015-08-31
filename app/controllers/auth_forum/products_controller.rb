@@ -26,6 +26,7 @@ module AuthForum
     end
 
     def create
+      puts post_params.inspect
       @product = Product.new(product_params)
       if @product.save
         redirect_to @product, notice: 'Product was successfully created.'

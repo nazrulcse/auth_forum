@@ -20,5 +20,9 @@ module AuthForum
       line_items.collect { |item| item.quantity * item.product.price }.sum
     end
 
+    def to_s
+      id
+    end
+
   end
 end

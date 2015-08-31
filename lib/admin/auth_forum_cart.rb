@@ -1,1 +1,4 @@
-ActiveAdmin.register AuthForum::Cart do end
+ActiveAdmin.register AuthForum::Cart do
+  menu label: 'Cart'
+  actions :index, :show, :destroy
+end

@@ -1,0 +1,49 @@
+.topics thead th {
+  background: #0088cc;
+  color: white;
+  padding: 5px;
+  border-bottom: 3px solid #232323;
+  font-size: 110%;
+}
+
+.topic td.byline {
+  padding: 10px;
+}
+
+.topic .subject {
+  font-size: 20px;
+}
+
+.new_topic textarea {
+  width: 50%;
+  min-height: 250px;
+}
+
+#topic #menu {
+  margin-bottom: 10px;
+}
+
+.simple_form.new_topic {
+  input[type='text'], textarea {
+    width: 100% !important;
+    margin-bottom: 10px;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #555;
+    display: block;
+    font-size: 14px;
+    height: 34px;
+    line-height: 1.42857;
+    padding: 6px 12px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width: 100%;
+    &:focus {
+      border-color: #66afe9;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
+      outline: 0 none;
+    }
+  }
+}

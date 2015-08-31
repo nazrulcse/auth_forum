@@ -1,5 +1,6 @@
 ActiveAdmin.register AuthForum::AdminUser do
   permit_params :email, :password, :password_confirmation
+  menu label: 'Admin'
 
   index do
     selectable_column

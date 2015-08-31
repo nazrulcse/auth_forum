@@ -11,10 +11,10 @@ module AuthForum
     belongs_to :user
     after_create :update_billing_address
     validates :card_holder_name, :presence => true
-    validates :card_num, :presence => true
-    validates :exp_month, :presence => true
-    validates :start_year, :presence => true
-    validates :card_cvv, :presence => true
+    validates :card_num, :presence => true, :on => :create
+    validates :exp_month, :presence => true, :on => :create
+    validates :start_year, :presence => true, :on => :create
+    validates :card_cvv, :presence => true, :on => :create
     validates :first_name, :presence => true
     validates :last_name, :presence => true
     validates :b_address, :presence => true, :if => :same_billing_address?
@@ -57,6 +57,10 @@ module AuthForum
 
     def order_total
       line_items.collect{|item| item.quantity * item.product.price }.sum
+    end
+
+    def to_s
+      id
     end
 
   end
