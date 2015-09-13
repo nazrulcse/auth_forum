@@ -2,6 +2,7 @@ require_dependency "auth_forum/application_controller"
 
 module AuthForum
   class OrdersController < ApplicationController
+    before_action :authenticate_user!, :only => ['index']
 
     def index
       @orders = Order.all.where(:user_id => current_user.id)
@@ -51,6 +52,10 @@ module AuthForum
       else
         render 'new'
       end
+    end
+
+    def show
+      @order = AuthForum::Order.find_by_id(params[:id])
     end
 
     def details

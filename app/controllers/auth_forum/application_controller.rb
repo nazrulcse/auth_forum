@@ -2,7 +2,7 @@ module AuthForum
   class ApplicationController < ActionController::Base
     helper_method :forem_user
     helper_method :current_cart
-    helper_method :authenticate_current_user!
+    #helper_method :authenticate_current_user!
     def forem_user
     end
 
@@ -15,6 +15,7 @@ module AuthForum
     end
 
     def authenticate_current_user!
+      puts "user: #{current_user.inspect}"
       current_user.present?
     end
 

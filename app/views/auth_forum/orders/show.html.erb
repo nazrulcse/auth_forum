@@ -1,0 +1,11 @@
+<% if @order.present? %>
+    <% if @order.line_items.present? %>
+        <div class="col-lg-12">
+          <%= render 'auth_forum/orders/order_item_single', :order => @order %>
+        </div>
+        <h2> Order Details </h2>
+        <%= render 'details_info', :order => @order %>
+    <% end %>
+<%else%>
+    <h2> Order not found </h2>
+<% end %>
