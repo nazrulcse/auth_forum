@@ -35,6 +35,7 @@ module AuthForum
                 :zip => order_params[:b_zip]
             }
         }
+
         @response = transaction.purchase((@amount * 100).to_i, payment_info, purchase_options)
         if @response.success?
           @order.card_number = @response.params["source"]["last4"]

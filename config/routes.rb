@@ -27,6 +27,9 @@ AuthForum::Engine.routes.draw do
   end
 
   root 'welcome#index'
+  get 'about', to: 'welcome#about'
+  get 'contact', to: 'welcome#contact'
+  post 'create_contact', to: 'welcome#create_contact'
   post 'user_authentication', to: 'welcome#user_authentication', as: :user_authentication
 
   resources :posts

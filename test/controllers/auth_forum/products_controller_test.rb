@@ -3,7 +3,10 @@ require 'test_helper'
 module AuthForum
   class ProductsControllerTest < ActionController::TestCase
     setup do
-      @product = products(:one)
+      @routes = Engine.routes
+      @user = FactoryGirl.create(:user, :name => 'nazrul')
+      sign_in @user
+      @product = FactoryGirl.create(:product, :price => 25)
     end
 
     test "should get index" do
@@ -47,5 +50,12 @@ module AuthForum
 
       assert_redirected_to products_path
     end
+
+    test "Should show more" do
+      xhr :get, :more
+      assert_response :success
+      assert_not_nil assigns(:products)
+    end
+
   end
 end

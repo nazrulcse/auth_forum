@@ -15,7 +15,6 @@ module AuthForum
     end
 
     def authenticate_current_user!
-      puts "user: #{current_user.inspect}"
       current_user.present?
     end
 

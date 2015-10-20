@@ -3,49 +3,23 @@ require 'test_helper'
 module AuthForum
   class CartsControllerTest < ActionController::TestCase
     setup do
-      @cart = carts(:one)
+      @routes = Engine.routes
+      @user = FactoryGirl.create(:user, :name => 'nazrul')
+      sign_in @user
+      @cart = FactoryGirl.create(:cart)
+      session[:cart_id] = @cart.id
     end
 
     test "should get index" do
       get :index
       assert_response :success
-      assert_not_nil assigns(:carts)
+      assert_not_nil assigns(:cart)
     end
 
-    test "should get new" do
-      get :new
-      assert_response :success
+    test "should empty_cart" do
+      get :empty_cart, id: @cart
+      assert_redirected_to products_path()
     end
 
-    test "should create cart" do
-      assert_difference('Cart.count') do
-        post :create, cart: {  }
-      end
-
-      assert_redirected_to cart_path(assigns(:cart))
-    end
-
-    test "should show cart" do
-      get :show, id: @cart
-      assert_response :success
-    end
-
-    test "should get edit" do
-      get :edit, id: @cart
-      assert_response :success
-    end
-
-    test "should update cart" do
-      patch :update, id: @cart, cart: {  }
-      assert_redirected_to cart_path(assigns(:cart))
-    end
-
-    test "should destroy cart" do
-      assert_difference('Cart.count', -1) do
-        delete :destroy, id: @cart
-      end
-
-      assert_redirected_to carts_path
-    end
   end
 end

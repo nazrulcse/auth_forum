@@ -3,7 +3,10 @@ require 'test_helper'
 module AuthForum
   class PostsControllerTest < ActionController::TestCase
     setup do
-      @post = posts(:one)
+      @routes = Engine.routes
+      @user = FactoryGirl.create(:user, :name => 'nazrul')
+      sign_in @user
+      @post = FactoryGirl.create(:post, :user_id => @user.id)
     end
 
     test "should get index" do

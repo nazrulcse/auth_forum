@@ -18,3 +18,9 @@ gem 'will_paginate', '3.0.5'
 gem 'forem', :github => "radar/forem", :branch => "rails4"
 gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
+gem 'mysql2', '~> 0.3.20'
+gem "factory_girl_rails", "~> 4.0"
+gem 'minitest-rails'
+gem 'simplecov', :require => false, :group => :test
+gem 'carmen-rails', '~> 1.0.0'
+gem 'carmen'

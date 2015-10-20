@@ -3,13 +3,13 @@ require 'test_helper'
 module AuthForum
   class LineItemsControllerTest < ActionController::TestCase
     setup do
-      @line_item = line_items(:one)
-    end
-
-    test "should get index" do
-      get :index
-      assert_response :success
-      assert_not_nil assigns(:line_items)
+      @routes = Engine.routes
+      @user = FactoryGirl.create(:user, :name => 'nazrul')
+      sign_in @user
+      @cart = FactoryGirl.create(:cart)
+      @product = FactoryGirl.create(:product, :price => 25)
+      @line_item = FactoryGirl.create(:line_item, :cart_id => @cart.id, :product_id => @product.id)
+      session[:cart_id] = @cart.id
     end
 
     test "should get new" do
@@ -22,22 +22,13 @@ module AuthForum
         post :create, line_item: { cart_id: @line_item.cart_id, product_id: @line_item.product_id }
       end
 
-      assert_redirected_to line_item_path(assigns(:line_item))
+      assert_redirected_to products_path
     end
 
-    test "should show line_item" do
-      get :show, id: @line_item
-      assert_response :success
-    end
-
-    test "should get edit" do
-      get :edit, id: @line_item
-      assert_response :success
-    end
 
     test "should update line_item" do
-      patch :update, id: @line_item, line_item: { cart_id: @line_item.cart_id, product_id: @line_item.product_id }
-      assert_redirected_to line_item_path(assigns(:line_item))
+      xhr :patch, :update, id: @line_item, :quantity => 2 ,format: 'js'
+      assert_response :success
     end
 
     test "should destroy line_item" do
@@ -45,7 +36,7 @@ module AuthForum
         delete :destroy, id: @line_item
       end
 
-      assert_redirected_to line_items_path
+      assert_redirected_to carts_path
     end
   end
 end

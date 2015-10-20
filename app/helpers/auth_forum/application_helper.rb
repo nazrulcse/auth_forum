@@ -22,7 +22,7 @@ module AuthForum
     def form_validation_message(obj)
       if obj.errors.any?
        html = "<div id='error_explanation'>"
-       html << "<h2> #{pluralize(@order.errors.count, 'error')} prohibited this post from being saved:</h2> <ul>"
+       html << "<h2> #{pluralize(obj.errors.count, 'error')} prohibited this post from being saved:</h2> <ul>"
        obj.errors.full_messages.each do |message|
          html << "<li> <i class='fa fa-times-circle'></i> #{message} </li>"
        end
