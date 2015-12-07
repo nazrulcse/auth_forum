@@ -1,10 +1,85 @@
 <div class="col-lg-12">
-  <h1 class="page-header reset-top-margin">
-    Welcome to auth forum blog post
-  </h1>
+  <div class="col-lg-8">
+    <h1 class="blue-header general-header">Universal Gaming League</h1>
+
+    <div class="widget-about-mlg"> Universal Gaming League (UGL) is the global leader in eSports. UGL operates UGL.tv,
+      the
+      #1 online broadcast network for professional level competitive gaming; the UGL Pro Circuit, the longest-running
+      eSports league in North America; and GameBattles, the largest cross platform online gaming tournament system
+      with 9 million registered users across the globe.
+    </div>
+    <div class="widget-header">
+      <span class="line"></span>
+      <span> eSport Events </span>
+    </div>
+    <div class="event-lists">
+      <% (1..5).each do |i| %>
+          <%= render 'auth_forum/welcome/event_list' %>
+      <% end %>
+    </div>
+    <div class="widget-header">
+      <span class="line"></span>
+      <span> Play in Competitive GameBattles Video Game Tournaments </span>
+    </div>
+    <span class="gamebattles-black-logo"></span>
+
+    <div class="tournaments">
+      <table class="main">
+        <tbody>
+        <% (1..5).each do |i| %>
+            <%= render 'auth_forum/welcome/tournament_item' %>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="widget-header">
+      <span class="line"></span>
+      <span> Top UGL Stories </span>
+    </div>
+    <div class="top-stories col-lg-12 reset-padding">
+      <% (1..5).each do |i| %>
+          <%= render 'auth_forum/welcome/top_story' %>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="widget-header">
+      <span class="line"></span>
+      <span> Store </span>
+    </div>
+    <div class="store-items">
+      <% AuthForum::Product.all.each do |product| %>
+          <%= render 'auth_forum/welcome/store_item', product: product %>
+      <% end %>
+      <div class="see_more">
+        <%= link_to 'See more store items >>', products_path %>
+      </div>
+    </div>
+    <div class="widget-header">
+      <span class="line"></span>
+      <span> UGL Post & News </span>
+    </div>
+    <div class="post-items">
+      <% (1..5).each do |i| %>
+          <%= render 'auth_forum/welcome/post_item' %>
+      <% end %>
+      <div class="see_more">
+        <a href="#"> See more posts &gt;&gt; </a>
+      </div>
+    </div>
+  </div>
 </div>
-<div class="col-lg-12 no-padding">
-  <% @posts.each do |post| %>
-   <%= render 'post_item', :post => post %>
-  <%end%>
-</div>
+<!--<div class="col-lg-12 no-padding">-->
+<!--<%# @posts.each do |post| %>-->
+<!--<%#= render 'post_item', :post => post %>-->
+<!--<%#end%>-->
+<!--</div>-->
+<script type="text/javascript">
+    $(function () {
+        $('.event-title').click(function () {
+            $(this).parent().find('.event-details').toggle();
+            $(this).parent().find('.fa-chevron-right').toggleClass('fa-chevron-down');
+        });
+    });
+</script>

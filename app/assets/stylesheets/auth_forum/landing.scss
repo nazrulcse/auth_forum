@@ -1,0 +1,230 @@
+.logo {
+  width: 75px;
+}
+
+a.navbar-brand {
+  padding: 7px 5px;
+}
+
+.general-header {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.blue-header {
+  color: #017DDE;
+}
+
+.widget-header {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  .line {
+    background: #dadada none repeat scroll 0 0;
+    height: 2px;
+    position: relative;
+    top: 15px;
+    display: block;
+  }
+  span {
+    background-color: #FDFDFF;
+    color: #222;
+    font-size: 18px;
+    font-weight: bold;
+    padding-right: 16px;
+    position: relative;
+  }
+}
+
+.store-items {
+  .store_item {
+    margin-bottom: 20px;
+    .store_desc {
+      font-size: 14px;
+      line-height: 19px;
+      max-height: 36px;
+      overflow: hidden;
+      font-weight: bold;
+    }
+    .store_price {
+      color: #777;
+      font-weight: 700;
+    }
+    .see_more {
+      text-align: right;
+    }
+  }
+}
+
+.store_img_link {
+  .store_img {
+    float: left;
+    height: 90px;
+    width: 90px;
+    margin-right: 7px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.post-items {
+  .post-item {
+    h1 {
+      font-size: 16px;
+      font-weight: bold;
+      margin: 3px 0 3px 0;
+    }
+    .badge {
+      color: #999;
+      font-size: 11px;
+      background: #fdfdfd;
+    }
+  }
+}
+
+.event-lists {
+  .event-item {
+    border-bottom: 1px solid #e4e3e1;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    .event-title {
+      cursor: pointer;
+      font-weight: bold;
+      .event-name {
+        margin-left: 45px;
+      }
+    }
+    .event-date-local {
+      font-size: 11px;
+      padding-top: 2px;
+    }
+    .event-body {
+      margin-top: 15px;
+    }
+    .event-image {
+      float: left;
+      margin: 0 5px 5px 0;
+    }
+    .spe-header {
+      color: #3391db;
+      font-weight: bold;
+    }
+    .event-desc {
+      line-height: 19px;
+    }
+    .tournament-colleps {
+      display: inline-block;
+      margin-right: 3px;
+    }
+  }
+  time {
+    border: 2px solid #00477f;
+    border-radius: 4px;
+    float: left;
+    &.calendar {
+      -moz-box-orient: vertical;
+      background: #fff none repeat scroll 0 0;
+      border: 1px solid #252525;
+      border-radius: 3px;
+      color: #252525;
+      display: inline-block;
+      font-weight: bold;
+      text-align: center;
+      vertical-align: middle;
+      .month {
+        background: #1554A8 none repeat scroll 0 0;
+        border-top-left-radius: 2px;
+        border-top-right-radius: 2px;
+        color: #fff;
+        display: block;
+        padding: 0 5px;
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+      .day {
+        display: block;
+        padding: 0;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+.gamebattles-black-logo {
+  background-image: url("//assets3-www.majorleaguegaming.com/assets/gamebattles-black-a015d3cd65e8475b3dfa66eeb6840262.png");
+  background-repeat: no-repeat;
+  display: inline-block;
+  height: 50px;
+  margin-bottom: -28px;
+  margin-top: 8px;
+  width: 400px;
+}
+
+.tournaments {
+  .main {
+    margin-top: 26px;
+  }
+  .tournament-item {
+    .subtable {
+      margin: 8px;
+    }
+    .first-td, .second-td {
+      img {
+        height: 48px;
+        margin-right: 2px;
+      }
+    }
+    .overflow-title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 540px;
+    }
+  }
+  .tournament-title {
+    color: #444;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .subtitle {
+    color: #999999;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 20px;
+  }
+
+  .money {
+    color: #14aa26;
+  }
+}
+
+.top-stories {
+  .stream {
+    .meta {
+      a {
+        color: #32323e;
+        font-size: 14px;
+      }
+    }
+    p {
+      &.info {
+        color: #8c8c8c;
+        font-size: 12px;
+        a {
+          color: #8c8c8c;
+          font-size: inherit;
+        }
+      }
+    }
+  }
+}
+
+.reset-padding {
+  padding: 0 !important;
+}
+
+body {
+  background: #FDFDFF !important;
+}

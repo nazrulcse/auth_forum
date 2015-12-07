@@ -1,23 +1,10 @@
-<div class="col-lg-4 reset-left-padding">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-        <b> <%= post.title %> </b>
-        <span class="pull-right">
-          <% if user_signed_in? && post.user_id == current_user.id %>
-            <%= link_to edit_post_path(post) do %>
-              <i class="fa fa-edit"></i>
-            <%end%> |
-            <%= link_to post, method: :delete, data: {confirm: 'Are you sure?'} do %>
-              <i class="fa fa-times-circle"></i>
-            <%end%>
-          <% end %>
-        </span>
-    </div>
-    <div class="panel-body">
-      <p>
-        <%= truncate(post.description, :length => 150) %>
-      </p>
-      <%= link_to 'Read More', post_path(post), :class => 'btn btn-default' %>
-    </div>
+<div class="post-item clearfix">
+  <h1>
+    <a href="#"> WDSU News </a>
+  </h1>
+
+  <div>
+    Competitive gaming takes center stage at Major League Gaming finals in New Orleans
   </div>
+  <span class="pull-right badge"> 12/11/2015 </span>
 </div>

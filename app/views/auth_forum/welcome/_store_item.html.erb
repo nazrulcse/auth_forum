@@ -1,0 +1,16 @@
+<div class="store_item">
+  <a href="#" class="store_img_link">
+    <div class="store_img">
+      <%= image_tag(product.image_url) %>
+      <!--<img src="http://s3.amazonaws.com/s3.majorleaguegaming.com/homepage/store/images/20/small/mlcsgomajor.jpg?1449165841" alt="Mlcsgomajor">-->
+    </div>
+  </a>
+
+  <div class="store_text">
+    <div class="store_desc">
+      <%= link_to product.title, product_path(product) %>
+    </div>
+    <div class="store_price"> <%= number_to_currency(product.price) %> </div>
+    <a href="#" class="btn btn-default"> BUY </a>
+  </div>
+</div>
